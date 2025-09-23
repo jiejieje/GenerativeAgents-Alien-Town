@@ -127,3 +127,8 @@ frontend/static/assets/village/tilemap/
 
 frontend/static/generated_images/
 frontend/static/generated_music/
+
+!frontend/static/assets/
+!frontend/static/assets/**
+!results/
+!results/**
