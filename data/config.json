@@ -1,0 +1,63 @@
+{
+    "agent_base": {
+        "percept": {
+            "mode": "box",
+            "vision_r": 8,
+            "att_bandwidth": 8
+        },
+        "schedule": {
+            "max_try": 5,
+            "diversity": 5
+        },
+        "think": {
+            "mode": "llm",
+            "llm": {
+                "base_url": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+                "model": "GLM-4-FlashX-250414",
+                "embedding_model": "embedding-2"
+            },
+            "interval": 1000,
+            "poignancy_max": 150
+        },
+        "chat_iter": 4,
+        "associate": {
+            "embedding": {
+                "type": "zhipuai",
+                "model": "embedding-2"
+            },
+            "retention": 8
+        }
+    },
+    "api_keys": {
+        "OPENAI_API_KEY": "",
+        "QIANFAN_AK": "",
+        "QIANFAN_SK": "",
+        "SPARK_APPID": "",
+        "SPARK_API_SECRET": "",
+        "SPARK_API_KEY": "",
+        "ZHIPUAI_API_KEY": ""
+    },
+    "services": {
+        "gemini": {
+            "api_key": "",
+            "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
+            "model": "gemini-2.5-flash"
+        },
+        "liblibai": {
+            "base_url": "https://openapi.liblibai.cloud",
+            "access_key": "DdwP8X0LY7wcj5sbbH1WRA",
+
+            "secret_key": "",
+
+            "starflow": {
+                "checkpoint_id": "0ea388c7eb854be3ba3c6f65aac6bfd3",
+                "template_uuid": "e10adc3949ba59abbe56e057f20f883e"
+            }
+        },
+        "suno": {
+            "api_key": "",
+            "base_url": "https://apibox.erweima.ai",
+            "callback_url": "http://localhost/suno_callback_placeholder"
+        }
+    }
+}

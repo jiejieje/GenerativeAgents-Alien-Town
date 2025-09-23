@@ -1,0 +1,140 @@
+{% extends "base.html" %} <!-- 继承自 base.html 模板 -->
+
+{% block content %} <!-- 定义 content 块的开始 -->
+<div class="container-fluid" style="padding: 0;"> <!-- 移除页面边距 -->
+    <!-- 游戏区域 -->
+    <div id="game-container" style="text-align: center; width: 100%; position: relative; overflow: hidden; min-height: 600px; border-radius: 14px; z-index: 1; height: 763.3px;">
+    <!-- 背景视频元素 -->
+    <video id="background-video" autoplay loop muted playsinline>
+        <!-- autoplay: 自动播放 -->
+        <!-- loop: 循环播放 -->
+        <!-- muted: 静音播放，浏览器通常要求自动播放的视频静音 -->
+        <!-- playsinline: 在iOS等设备上行内播放，防止自动全屏 -->
+        <source src="{{ url_for('static', filename='assets/village/tilemap/背景视频.mp4') }}" type="video/mp4">
+        <!-- src: 视频文件的路径, 使用 Flask 的 url_for 函数动态生成静态文件的URL -->
+        <!-- type: 视频文件的MIME类型 -->
+        您的浏览器不支持 HTML5 video 标签。
+        <!-- 当浏览器不支持 <video> 标签时，将显示这段文字 -->
+    </video>
+    <!-- PixiJS 的 canvas 将会由 main_script.html 中的脚本动态添加到这里 -->
+</div>
+    
+    <!-- 角色选择区域 - 精简美化版 (高度缩小) -->
+    <div class="row" style="margin: 5px 0;"> <!-- 进一步减小外边距 -->
+        <div class="col-md-12" style="background: linear-gradient(145deg, #1a1a1a, #0a0a0a); border: 1px solid #4a3f2a; padding: 8px 15px; border-radius: 10px; box-shadow: 0 2px 10px rgba(212, 175, 55, 0.1);"> <!-- 减小内边距和圆角 -->
+            <div class="row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;"> <!-- 减小间隙 -->
+                {% for p in persona_names %} <!-- 循环遍历 persona_names 列表 -->
+                <div class="character-card" id="on_screen_det_trigger_container-{{ p }}" style="text-align: center; background: linear-gradient(145deg, #2a2a2a, #1a1a1a); border: 1px solid #4a3f2a; border-radius: 8px; padding: 6px; min-width: 40px; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);"> <!-- 减小容器尺寸 -->
+                    <a href="javascript:void(0);" id="on_screen_det_trigger-{{ p }}" style="text-decoration: none; color: inherit;"> <!-- 点击链接，不跳转页面 -->
+                        <div style="padding: 0;"> <!-- 内边距为零的内部容器 -->
+                            {% set image_static = 'assets/village/agents/' ~ p ~ '/portrait.png' %} <!-- 设置 image_static 变量，指向角色的肖像图片路径 -->
+                            <img src="{{ url_for('static', filename=image_static) }}" style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid #4a3f2a; margin-bottom: 4px; transition: all 0.3s ease; object-fit: cover;"> <!-- 缩小头像尺寸 -->
+                            <div style="font-size: 10px; font-weight: 500; color: #f4e4c1; transition: all 0.3s ease;">{{ p }}</div> <!-- 缩小字体大小和粗细 -->
+                        </div>
+                    </a>
+                </div>
+                {% endfor %} <!-- 循环结束 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 角色信息区域 - 精简美化版 -->
+    <div class="media character-info-panel" id="on_screen_det_content-init" style="background: linear-gradient(145deg, #1a1a1a, #0a0a0a); border: 1px solid #4a3f2a; padding: 18px 25px; border-radius: 12px; color: #f4e4c1; box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15); margin: 10px 0;">
+        <em style="font-size: 15px; color: #d4c4a1; text-align: center; display: block;">✨ 点击上方角色头像查看详细信息 ✨</em> <!-- 初始提示信息，居中显示 -->
+    </div>
+
+    {% for p in persona_names %} <!-- 再次循环遍历 persona_names 列表 -->
+        <div class="media character-info-panel" id="on_screen_det_content-{{ p }}" style="background: linear-gradient(145deg, #1a1a1a, #0a0a0a); border: 1px solid #4a3f2a; padding: 15px 25px; border-radius: 12px; color: #f4e4c1; box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15); margin: 10px 0; display: none;">
+            <!-- 隐藏的详细信息容器，初始状态为隐藏 -->
+            <div class="media-left media-middle"> <!-- 左侧媒体部分，垂直居中 -->
+                {% set image_static = 'assets/village/agents/' ~ p ~ '/portrait.png' %} <!-- 设置 image_static 变量，指向角色的肖像图片路径 -->
+                <img src="{{ url_for('static', filename=image_static) }}" style="width: 3.5em; height: 3.5em; border-radius: 50%; border: 2px solid #d4af37; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); object-fit: cover;"> <!-- 调整头像尺寸，确保圆形 -->
+                <div style="display: none;" id="temp_focus"></div> <!-- 隐藏的临时焦点元素，用于存储当前选中的角色名称 -->
+            </div>
+            <div class="media-body" style='padding-left: 20px; padding-top: 2px; padding-bottom: 2px;'> <!-- 调整内边距 -->
+                <div style="">
+                    <h4 style="color: #d4af37; font-weight: 700; margin-bottom: 8px; text-shadow: 0 0 5px rgba(212, 175, 55, 0.5); font-size: 18px;">{{ p }}</h4>
+                    <p style="font-size: 14px; line-height: 1.4; margin-bottom: 6px; color: #f4e4c1;"><span id="agent_desc__{{ p }}"></span></p> <!-- 调整字体大小和行距 -->
+                    <p style="font-size: 13px; color: #d4c4a1;"><strong style="color: #d4af37;">当前活动：</strong><span id="current_action__{{ p }}" style="color: #f4e4c1;"></span> <strong style="color: #d4af37;">@</strong> <span id="target_address__{{ p }}" style="color: #b4a481;"></span></p> <!-- 调整字体大小 -->
+                </div>
+            </div>
+        </div>
+    {% endfor %} <!-- 循环结束 -->
+
+    <!-- 对话面板区域 - 不固定，在页面正常流中 -->
+    <div id="ui-dialog-panel" style="width: 100%; min-height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.6)); border-top: 2px solid #3498db; color: white; padding: 10px 15px; margin-top: 20px; overflow-y: auto;">
+        <!-- 对话内容区域 -->
+        <div id="conversation-content" style="display: flex; flex-direction: column; gap: 10px;"></div>
+        
+        <!-- 默认对话内容（无对话时显示） -->
+        <div id="default-dialog-content" style="text-align: center; padding: 20px;">
+            <p>欢迎来到角色互动模拟世界！</p>
+            <p>当角色开始对话时，对话内容将显示在这里。</p>
+            <p>您可以通过时间轴来查看角色之间的互动情况。</p>
+        </div>
+    </div>
+    
+    <!-- 控制按钮区域 - 不固定，在页面正常流中 -->
+    <div id="ui-bottom-panel" style="width: 100%; height: 70px; background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.7)); border-top: 2px solid #3498db; padding: 5px 15px; display: flex; align-items: center; margin-bottom: 40px;"></div>
+</div>
+
+{% endblock content %} <!-- 定义 content 块的结束 -->
+
+{% block js_content %} <!-- 定义 js_content 块的开始 -->
+{% include 'main_script.html' %} <!-- 包含主脚本文件 -->
+<script>
+{% for p in persona_names %} <!-- 循环遍历 persona_names 列表，为每个角色绑定点击事件 -->
+    $('#on_screen_det_trigger-{{ p }}').click(function() { <!-- 当点击特定角色的触发器时执行函数 -->
+        $('#on_screen_det_content-init').css({
+          'display': 'none',
+        }); <!-- 隐藏初始提示信息 -->
+        {% for p_i in persona_names %} <!-- 内部循环，遍历所有角色 -->
+            $('#on_screen_det_content-{{p_i}}').css({
+                'display': 'none',
+            }); <!-- 隐藏所有详细信息容器 -->
+            $('#on_screen_det_trigger-{{p_i}}').css({
+                'font-weight': '600',
+            }); <!-- 重置所有角色触发器的字体粗细 -->
+            $('#on_screen_det_trigger_container-{{p_i}}').css({
+                'background': 'linear-gradient(145deg, #2a2a2a, #1a1a1a)',
+                'border-color': '#4a3f2a',
+                'transform': 'scale(1)',
+                'box-shadow': '0 2px 8px rgba(0, 0, 0, 0.3)'
+            }); <!-- 重置所有角色触发器为默认黑金主题样式 -->
+            $('#on_screen_det_trigger_container-{{p_i}} img').css({
+                'border-color': '#4a3f2a',
+                'box-shadow': 'none'
+            }); <!-- 重置角色头像样式 -->
+            $('#on_screen_det_trigger_container-{{p_i}} div').css({
+                'color': '#f4e4c1',
+                'text-shadow': 'none'
+            }); <!-- 重置角色名称样式 -->
+        {% endfor %} <!-- 内部循环结束 -->
+
+        $('#on_screen_det_trigger-{{ p }}').css({
+            'font-weight': '700',
+        }); <!-- 设置当前点击角色触发器的字体为加粗 -->
+        $('#on_screen_det_trigger_container-{{ p }}').css({
+            'background': 'linear-gradient(145deg, #fff9c4, #f7e98e)',
+            'border-color': '#fff5b0',
+            'transform': 'scale(1.1)', /* 稍微增加选中时的放大效果以适应更小的基础尺寸 */
+            'box-shadow': '0 3px 10px rgba(255, 245, 176, 0.4)' /* 调整阴影以匹配新尺寸 */
+        }); <!-- 设置当前点击角色触发器的淡黄色选中样式 -->
+        $('#on_screen_det_trigger_container-{{ p }} img').css({
+            'border-color': '#ffeb3b',
+            'box-shadow': '0 0 10px rgba(255, 235, 59, 0.7)' /* 调整阴影以匹配新尺寸 */
+        }); <!-- 设置选中角色头像的亮黄色光晕 -->
+        $('#on_screen_det_trigger_container-{{ p }} div').css({
+            'color': '#2d1810',
+            'text-shadow': '0 0 2px rgba(255, 255, 255, 0.8)',
+            'font-weight': '700'
+        }); <!-- 设置选中角色名称的深色对比，增强可读性 -->
+        $('#on_screen_det_content-{{ p }}').css({
+            'display': 'block',
+        }); <!-- 显示当前点击角色的详细信息容器 -->
+
+        document.getElementById("temp_focus").innerHTML = "{{ p }}"; <!-- 将当前点击的角色名称设置到临时焦点元素中 -->
+    });
+{% endfor %} <!-- 循环结束 -->
+</script>
+{% endblock js_content %} <!-- 定义 js_content 块的结束 -->

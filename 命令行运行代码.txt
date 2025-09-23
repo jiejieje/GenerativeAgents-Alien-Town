@@ -1,0 +1,36 @@
+
+虚拟环境
+
+
+conda activate myenv
+
+
+python start.py --name wxr31 --start "20240213-09:30" --step 150 --stride 10
+
+
+继续生成版代码
+
+
+python start.py --name wxr31 --start "20240213-09:30" --step 150 --stride 10 --resume
+
+
+新开始代码
+
+
+python start.py --name wxr17 --start "20240213-09:30" --step 60 --stride 30
+
+
+
+python compress.py --name sim_20250615_053621
+
+python replay.py
+
+
+
+
+
+http://127.0.0.1:5000/?name=wxr25
+
+
+
+http://127.0.0.1:5000/?name=wxr31&step=30&speed=1&zoom=0.1

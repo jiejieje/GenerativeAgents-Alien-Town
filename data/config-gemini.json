@@ -1,0 +1,42 @@
+{
+    "agent_base": {
+        "percept": {
+            "mode": "box",
+            "vision_r": 8,
+            "att_bandwidth": 8
+        },
+        "schedule": {
+            "max_try": 5,
+            "diversity": 5
+        },
+        "think": {
+            "mode": "llm",
+            "llm": {
+                "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
+                "model": "gemini-2.5-flash",
+                "embedding_model": "gemini-embedding-001"
+            },
+            "interval": 1000,
+            "poignancy_max": 150
+        },
+        "chat_iter": 4,
+        "associate": {
+            "embedding": {
+                "type": "google",
+                "model": "gemini-embedding-001",
+                "api_key": ""
+            },
+            "retention": 8
+        }
+    },
+    "api_keys": {
+        "OPENAI_API_KEY": "",
+        "QIANFAN_AK": "",
+        "QIANFAN_SK": "",
+        "SPARK_APPID": "",
+        "SPARK_API_SECRET": "",
+        "SPARK_API_KEY": "",
+        "ZHIPUAI_API_KEY": "aaebd591c991416e8bf4d8375472eb4f.uYV5plMrV2uZ2VQI",
+        "GEMINI_API_KEY": "AIzaSyCy5R-v3EtnwdbfgAyChCroQzWZBHHPSIs"
+    }
+}

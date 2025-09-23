@@ -1,0 +1,13 @@
+openai
+qianfan
+zhipuai
+spark-ai-python
+llama-index
+flask
+llama-index-embeddings-zhipuai
+Pillow
+llama-index-embeddings-google
+llama-index-embeddings-google-genai
+PySide6
+python-dotenv
+requests
