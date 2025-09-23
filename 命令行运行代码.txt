@@ -21,16 +21,17 @@ python start.py --name wxr17 --start "20240213-09:30" --step 60 --stride 30
 
 
 
+压缩
 python compress.py --name sim_20250615_053621
-
+查看回放
 python replay.py
 
 
 
 
-
+回放网页地址
 http://127.0.0.1:5000/?name=wxr25
 
 
-
-http://127.0.0.1:5000/?name=wxr31&step=30&speed=1&zoom=0.1
+回放网页地址
+http://127.0.0.1:5000/?name=wxr31&step=1&speed=1&zoom=0.1
