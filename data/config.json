@@ -23,31 +23,23 @@
         "associate": {
             "embedding": {
                 "type": "zhipuai",
-                "model": "embedding-2"
+                "model": "embedding-2",
+                "api_key": "your_api_key"
             },
             "retention": 8
         }
     },
-    "api_keys": {
-        "OPENAI_API_KEY": "",
-        "QIANFAN_AK": "",
-        "QIANFAN_SK": "",
-        "SPARK_APPID": "",
-        "SPARK_API_SECRET": "",
-        "SPARK_API_KEY": "",
-        "ZHIPUAI_API_KEY": ""
-    },
+
     "services": {
         "gemini": {
-            "api_key": "",
+            "api_key": "your_api_key",
             "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
             "model": "gemini-2.5-flash"
         },
         "liblibai": {
             "base_url": "https://openapi.liblibai.cloud",
-            "access_key": "DdwP8X0LY7wcj5sbbH1WRA",
-
-            "secret_key": "",
+            "access_key": "your_api_key",
+            "secret_key": "your_api_key",
 
             "starflow": {
                 "checkpoint_id": "0ea388c7eb854be3ba3c6f65aac6bfd3",
@@ -55,7 +47,7 @@
             }
         },
         "suno": {
-            "api_key": "",
+            "api_key": "your_api_key",
             "base_url": "https://apibox.erweima.ai",
             "callback_url": "http://localhost/suno_callback_placeholder"
         }
