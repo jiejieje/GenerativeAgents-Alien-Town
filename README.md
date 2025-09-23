@@ -1,6 +1,6 @@
 ## 🛸 GenerativeAgents: Alien Town 外星小镇
 
-![主宣传画面](github页面图片/主宣传画面.gif)
+![主宣传画面](github页面图片视频等/主宣传画面.gif)
 
 ### 🎯 这是什么？
 这是一个**智能AI小镇模拟器**！你可以创造虚拟角色，让他们在小镇里自由生活，而且他们会：
@@ -21,9 +21,12 @@
 
 **简介视频：**
 
-https://github.com/user-attachments/assets/your-video-file-id
+<video src="github页面图片视频等/《A外星小镇》简介.mp4" controls muted playsinline style="max-width:100%; height:auto;">
+  您的浏览器不支持内嵌视频。您可以点击此处查看：
+  <a href="github页面图片视频等/《A外星小镇》简介.mp4">《A外星小镇》简介.mp4</a>
+</video>
 
-> 💡 提示：如果视频无法显示，请直接查看仓库中的 `github页面图片/《A外星小镇》简介.mp4` 文件
+> 💡 提示：如果上方视频无法播放，请直接查看仓库中的文件：`github页面图片视频等/《A外星小镇》简介.mp4`
 
 
 ### 📋 开始使用
@@ -49,7 +52,7 @@ pip install -r requirements.txt
       "embedding": {
         "type": "zhipuai",
         "model": "embedding-2",
-        "api_key": "你的智谱AI密钥（用于向量化）"
+        "api_key": "你的智谱AI密钥"
       }
     }
   },
@@ -174,11 +177,9 @@ A: 一般不影响运行，如果介意可以尝试：
 ### 🙏 致谢
 特别感谢以下开源项目和贡献者：
 
-- **[x-glacier/GenerativeAgentsCN](https://github.com/x-glacier/GenerativeAgentsCN)** - 非常感谢 x-glacier 大佬提供的中文化框架和建设性建议。没有您精心构建的基础架构，这个外星小镇项目根本不可能实现。向您的技术实力和无私分享精神致以最崇高的敬意！
+- **[x-glacier/GenerativeAgentsCN](https://github.com/x-glacier/GenerativeAgentsCN)** - 非常感谢 x-glacier 大佬提供的中文化框架和建设性建议。没有您精心构建的基础架构，这个外星小镇项目根本不可能实现。
 - **[Stanford Generative Agents](https://github.com/joonspk-research/generative_agents)** - 提供了理论基础和核心思想
 - **[Pixi.js](https://github.com/pixijs/pixijs)** - 高效的网页引擎让高清分辨率地图展示成为可能
-- **各大AI服务商** - 智谱AI、Google Gemini、Suno、LibLibAI等提供强大的API支持
-- **LlamaIndex生态** - 提供了完整的AI工具链支持
 
 
 
@@ -189,12 +190,11 @@ A: 一般不影响运行，如果介意可以尝试：
 
 如果您在使用过程中发现任何bug、代码问题或有改进建议，非常欢迎通过Issue与我交流指正。每一个反馈都是我学习进步的宝贵机会！
 
-同时也希望这个小镇能给大家带来一些乐趣，或是在游戏开发中提供一些灵感。
+同时也希望这个小镇能给大家带来一些乐趣和灵感。
 
 ⭐ 如果你觉得这个项目有趣，欢迎给个Star支持！  
 💬 有问题或建议欢迎提Issue一起讨论  
-🤝 也欢迎志同道合的朋友一起参与开发，让AI小镇变得更加精彩  
-🎨 特别欢迎美术、音乐、游戏设计等创意领域的朋友加入
+
 
 
 
