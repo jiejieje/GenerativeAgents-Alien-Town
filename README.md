@@ -71,10 +71,10 @@ pip install -r requirements.txt
 ```
 
 **💡 小便签：**
-- 智谱AI：用于角色的基础对话和思考，对应网址：https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys
-- Gemini：用于代码生成功能，对应网址：https://aistudio.google.com/app/apikey
-- Suno：用于音乐创作功能，对应网址：https://sunoapi.org/zh-CN
-- LibLibAI：用于图片绘画功能，对应网址：https://www.liblib.art/apis
+- 智谱AI（API成本约2元左右可以使用非常久）：用于角色的基础对话和思考，对应网址：https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys
+- Gemini（API每天有免费1百万token使用）：用于代码生成功能，对应网址：https://aistudio.google.com/app/apikey
+- SunoAI（API相对较贵一点，5元约能生成100首音乐）：用于音乐创作功能，对应网址：https://sunoapi.org/zh-CN
+- LibLibAI（API约0.1元一张图片）：用于图片绘画功能，对应网址：https://www.liblib.art/apis
 
 #### 🚀 开始体验
 
@@ -99,7 +99,7 @@ python AI小镇启动器.py
 - 无需安装Python环境，开箱即用！
 
 ⚠️ **重要提示：** 
-**Releases**打包版本使用的是开发者个人的API密钥，目前账号还有余额供大家免费体验。如果运行时没有看到AI角色生成图片和音乐，说明余额已耗尽，此时需要你再\AI-Town\_internal\data里找到config.json配置自己的API密钥才能继续使用。
+**Releases**打包版本使用的是开发者个人的API密钥，目前账号还有余额供大家免费体验。如果运行时没有看到AI角色生成图片和音乐，说明余额已耗尽，此时需要你在\AI-Town\_internal\data里找到config.json配置自己的API密钥才能继续使用。
 <br>
 <br>
 
