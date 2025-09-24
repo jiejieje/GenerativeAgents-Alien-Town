@@ -1,4 +1,4 @@
-## 🛸 GenerativeAgents: Alien Town 外星小镇
+#  GenerativeAgents: Alien Town 外星小镇
 
 ![主宣传画面](github页面图片/主宣传画面.gif)
 
@@ -88,6 +88,8 @@ python AI小镇启动器.py
 📖 **详细使用教程**：想要更详细的操作指导？查看 [《AI外星小镇使用教程》](github页面图片/AI外星小镇使用教程.pdf)（约3分钟即可学会）
 
 
+
+
 ## 📦 使用方式二：下载预编译版本（推荐给想体验一下的小白用户）📦 
 在GitHub页面右侧的 **Releases** 区域下载最新的打包文件：
 - 下载后解压到任意目录
@@ -99,12 +101,6 @@ python AI小镇启动器.py
 
 
 
-### 🎭 如何查看角色作品
-模拟运行后，你可以在以下地方找到角色们的创作：
-- 📁 `results/`文件夹 - 模拟记录和数据
-- 🎨 生成的图片 - 在 `frontend/static/generated_images/`
-- 🎵 创作的音乐 - 在 `frontend/static/generated_music/` 
-- 💻 编写的代码 - 在 `frontend/static/generated_html_sims/`
 
 ### ❓ 常见问题
 
