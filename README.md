@@ -11,6 +11,10 @@
 
 ![生成图片/音乐/网页画面](github页面图片/生成图片音乐网页画面.gif)
 
+<br>
+<br>
+<br>
+<br>
 
 ### ✨ 项目特色
 相比其他AI小镇项目（如斯坦福小镇），我们的AI角色更有创造力：
@@ -141,7 +145,10 @@ A: 一般不影响运行，如果介意可以尝试：
 ### 📄 许可证
 - 项目代码遵循Apache License 2.0协议
 
-
+<br>
+<br>
+<br>
+<br>
 ### 🙏 致谢
 特别感谢以下开源项目和贡献者：
 
@@ -149,7 +156,10 @@ A: 一般不影响运行，如果介意可以尝试：
 - **[Stanford Generative Agents](https://github.com/joonspk-research/generative_agents)** - 提供了理论基础和核心思想
 - **[Pixi.js](https://github.com/pixijs/pixijs)** - 高效的网页引擎让高清分辨率地图展示成为可能
 
-
+<br>
+<br>
+<br>
+<br>
 
 ---
 
