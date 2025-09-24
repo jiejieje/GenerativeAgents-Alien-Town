@@ -99,7 +99,6 @@ python AI小镇启动器.py
   <br>
   <br>
   <br>
-  <br>
   
 ##  ✨ 使用方式二：下载预编译版本（推荐给想体验一下的小白用户） 
 在GitHub页面右侧的 **Releases** 区域下载最新的打包文件：
@@ -110,7 +109,6 @@ python AI小镇启动器.py
 ⚠️ **重要提示：** 
 **Releases**打包版本使用的是开发者个人的API密钥，目前账号还有余额供大家免费体验。如果运行时没有看到AI角色生成图片和音乐，说明余额已耗尽，此时需要你在\AI-Town\_internal\data里找到config.json配置自己的API密钥才能继续使用。
 
-<br>
 <br>
 <br>
 <br>
