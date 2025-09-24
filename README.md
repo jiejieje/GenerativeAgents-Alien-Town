@@ -102,7 +102,8 @@ python AI小镇启动器.py
 **Releases**打包版本使用的是开发者个人的API密钥，目前账号还有余额供大家免费体验。如果运行时没有看到AI角色生成图片和音乐，说明余额已耗尽，此时需要你在\AI-Town\_internal\data里找到config.json配置自己的API密钥才能继续使用。
 <br>
 <br>
-
+<br>
+<br>
 
 
 ### ❓ 常见问题
