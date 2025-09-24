@@ -157,7 +157,7 @@ A: 一般不影响运行，如果介意可以尝试：
 特别感谢以下开源项目和贡献者：
 
 - **[x-glacier/GenerativeAgentsCN](https://github.com/x-glacier/GenerativeAgentsCN)** - 非常感谢 x-glacier 大佬提供的中文化框架和建设性建议。没有x-glacier 精心构建的基础架构，这个外星小镇项目可能不会实现。
-- **[Stanford Generative Agents](https://github.com/joonspk-research/generative_agents)** - 非常感谢joonspk-research开源的项目提供了理论基础和核心思想。
+- **[Stanford Generative Agents](https://github.com/joonspk-research/generative_agents)** - 非常感谢joonspk-research开源的项目和论文提供了理论基础和核心思想。
 - **[Pixi.js](https://github.com/pixijs/pixijs)** - 非常感谢pixiJS高效的网页引擎让高清分辨率地图展示成为可能
 
 
