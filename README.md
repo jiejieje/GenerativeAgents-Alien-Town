@@ -153,7 +153,8 @@ A: 一般不影响运行，如果介意可以尝试：
 <br>
 <br>
 <br>
-### 🙏 致谢
+
+#  🙏 致谢
 特别感谢以下开源项目和贡献者：
 
 - **[x-glacier/GenerativeAgentsCN](https://github.com/x-glacier/GenerativeAgentsCN)** - 非常感谢 x-glacier 大佬提供的中文化框架和建设性建议。没有您精心构建的基础架构，这个外星小镇项目根本不可能实现。
