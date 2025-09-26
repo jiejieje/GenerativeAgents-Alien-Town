@@ -17,7 +17,7 @@
 <br>
 <br>
 <br>
-### ✨ 主要工作内容（基于x-glacier的GenerativeAgentsCN项目）
+### ✨ 主要工作内容（基于x-glacier的GenerativeAgentsCN框架开发）
 外星小镇更便捷使用，AI角色更有创造力：
 - 🎨 **智能绘画**：基于 LibLibAI 接口，角色可以根据情感和想法自动生成图片
 - 🎵 **音乐创作**：基于 Suno 接口，角色能够创作和分享音乐
